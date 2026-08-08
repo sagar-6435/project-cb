@@ -46,27 +46,17 @@ const categories = [
 
 export default function Products() {
     return (
-        <div className="flex-grow bg-white">
-            {/* Hero Section */}
-            <div className="bg-[#022f24] text-white py-24 px-8 text-center relative overflow-hidden">
-                <div className="relative z-10 max-w-4xl mx-auto">
-                    <p className="text-[#e2933f] font-semibold tracking-widest uppercase text-sm mb-4">Our Products</p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-                        Made for Every Celebration
-                    </h1>
-                    <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-                        From birthdays to weddings, surprises to simple cravings — Cake Box creates something delicious for every moment.
-                    </p>
-                    <Link to="/partner">
-                        <button className="bg-[#e2933f] hover:bg-[#cf8332] text-white px-8 py-4 rounded-full font-medium transition-colors">
-                            Become a Franchise Partner
-                        </button>
-                    </Link>
-                </div>
+        <div className="flex-grow bg-white pt-24">
+
+            {/* Page Heading */}
+            <div className="text-center px-4 max-w-4xl mx-auto mb-4 mt-8">
+                <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 tracking-tight">
+                    Our Products
+                </h1>
             </div>
 
             {/* Categories Grid */}
-            <div className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+            <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                     {categories.map((cat, i) => (
                         <div key={i} className="bg-gray-50 rounded-2xl p-4 md:p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 group">
@@ -93,20 +83,6 @@ export default function Products() {
                         </button>
                     </Link>
                 </div>
-            </div>
-
-            {/* Franchise CTA */}
-            <div className="bg-white py-24 px-8 text-center max-w-3xl mx-auto">
-                <p className="text-[#e2933f] font-semibold uppercase tracking-widest text-sm mb-4">Love what we create?</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">Bring Cake Box to Your City</h2>
-                <p className="text-lg text-gray-600 mb-10">
-                    You could bring the Cake Box experience to your own city through a franchise partnership.
-                </p>
-                <Link to="/partner">
-                    <button className="bg-[#022f24] hover:bg-[#034233] text-white px-10 py-4 rounded-full font-medium transition-colors shadow-lg">
-                        Become a Franchise Partner
-                    </button>
-                </Link>
             </div>
         </div>
     );
