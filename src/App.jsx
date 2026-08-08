@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { ArrowRight, TrendingUp, Star, Headset, Menu, X } from 'lucide-react';
 import GenericPage from './pages/GenericPage';
 import WhyCakeBox from './pages/WhyCakeBox';
+import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
 import Locations from './pages/Locations';
@@ -18,60 +19,66 @@ function Layout({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-gray-50">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 md:px-10 py-5 bg-[#e4e2dd] w-full z-10 shrink-0 shadow-sm relative">
-        <div className="flex items-center">
-          <Link to="/" onClick={closeMenu} className="flex items-center gap-2">
-            <img src="/image.png" alt="Cake Box Logo" className="h-10 w-auto rounded-md shadow-sm" />
-            <h1 className="text-3xl font-serif font-bold text-gray-900 tracking-tight hidden sm:block">Cake Box</h1>
-          </Link>
-        </div>
+      {/* Header Container */}
+      <div className="sticky top-0 lg:fixed lg:top-3 lg:left-0 lg:right-0 z-50 flex justify-center lg:px-4 w-full lg:pointer-events-none">
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8 text-sm font-semibold text-gray-700">
-          <Link to="/" className={`${isActive('/') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>HOME</Link>
-          <Link to="/about" className={`${isActive('/about') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>ABOUT</Link>
-          <Link to="/why-cake-box" className={`${isActive('/why-cake-box') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>WHY CAKE BOX</Link>
-          <Link to="/products" className={`${isActive('/products') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>PRODUCTS</Link>
-          <Link to="/franchise" className={`${isActive('/franchise') || isActive('/partner') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>FRANCHISE</Link>
-          <Link to="/locations" className={`${isActive('/locations') ? 'border-b-2 border-black pb-1 text-black' : 'hover:text-black transition-colors'}`}>LOCATIONS</Link>
-        </nav>
+        <header className="flex items-center justify-between w-full px-6 py-4 lg:px-3 lg:py-2 bg-[#e4e2dd] lg:bg-black/30 lg:backdrop-blur-lg lg:rounded-full shadow-sm lg:shadow-lg pointer-events-auto lg:max-w-6xl lg:border lg:border-white/20 transition-all">
+          <div className="flex items-center">
+            <Link to="/" onClick={closeMenu} className="flex items-center gap-3">
+              <div className="flex items-center justify-center lg:bg-white lg:rounded-full lg:p-1.5 lg:shadow-inner">
+                <img src="/image.png" alt="Cake Box Logo" className="h-10 w-auto lg:h-9 lg:w-9 lg:object-cover rounded-md lg:rounded-full" />
+              </div>
+              <h1 className="text-2xl lg:text-xl font-serif font-bold text-gray-900 lg:text-white tracking-tight mr-2">Cake Box</h1>
+            </Link>
+          </div>
 
-        <div className="hidden md:block">
-          <Link to="/partner">
-            <button className="bg-[#022f24] hover:bg-[#034233] text-white px-6 py-3 rounded-full text-sm font-medium transition-colors">
-              BECOME A FRANCHISE PARTNER
-            </button>
-          </Link>
-        </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-white/80">
+            <Link to="/" className={`${isActive('/') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>Home</Link>
+            <Link to="/about" className={`${isActive('/about') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>About</Link>
+            <Link to="/why-cake-box" className={`${isActive('/why-cake-box') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>Why Us</Link>
+            <Link to="/products" className={`${isActive('/products') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>Products</Link>
+            <Link to="/franchise" className={`${isActive('/franchise') || isActive('/partner') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>Franchise</Link>
+            <Link to="/locations" className={`${isActive('/locations') ? 'text-white font-bold' : 'hover:text-white transition-colors'}`}>Locations</Link>
+          </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-gray-900 p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </header>
-
-      {/* Mobile Navigation Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#e4e2dd] w-full border-t border-gray-300 shadow-md">
-          <nav className="flex flex-col px-6 py-4 space-y-4 text-gray-700 font-semibold text-center">
-            <Link to="/" onClick={closeMenu} className={`${isActive('/') ? 'text-black' : ''}`}>HOME</Link>
-            <Link to="/about" onClick={closeMenu} className={`${isActive('/about') ? 'text-black' : ''}`}>ABOUT</Link>
-            <Link to="/why-cake-box" onClick={closeMenu} className={`${isActive('/why-cake-box') ? 'text-black' : ''}`}>WHY CAKE BOX</Link>
-            <Link to="/products" onClick={closeMenu} className={`${isActive('/products') ? 'text-black' : ''}`}>PRODUCTS</Link>
-            <Link to="/franchise" onClick={closeMenu} className={`${isActive('/franchise') || isActive('/partner') ? 'text-black' : ''}`}>FRANCHISE</Link>
-            <Link to="/locations" onClick={closeMenu} className={`${isActive('/locations') ? 'text-black' : ''}`}>LOCATIONS</Link>
-            <Link to="/partner" onClick={closeMenu} className="pt-2">
-              <button className="bg-[#022f24] text-white px-6 py-3 rounded-full text-sm font-medium w-full">
-                BECOME A FRANCHISE PARTNER
+          <div className="hidden md:block">
+            <Link to="/partner">
+              <button className="bg-[#022f24] lg:bg-white hover:bg-[#034233] lg:hover:bg-gray-100 text-white lg:text-[#022f24] px-5 py-2.5 rounded-full text-sm font-bold transition-colors shadow-sm">
+                Become a Partner
               </button>
             </Link>
-          </nav>
-        </div>
-      )}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden text-gray-900 p-2 ml-auto focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </header>
+
+        {/* Mobile Navigation Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-full left-0 right-0 w-full bg-[#e4e2dd] border-t border-gray-300 shadow-md lg:hidden pointer-events-auto">
+            <nav className="flex flex-col px-6 py-4 space-y-4 text-gray-700 font-semibold text-center">
+              <Link to="/" onClick={closeMenu} className={`${isActive('/') ? 'text-black' : ''}`}>HOME</Link>
+              <Link to="/about" onClick={closeMenu} className={`${isActive('/about') ? 'text-black' : ''}`}>ABOUT</Link>
+              <Link to="/why-cake-box" onClick={closeMenu} className={`${isActive('/why-cake-box') ? 'text-black' : ''}`}>WHY CAKE BOX</Link>
+              <Link to="/products" onClick={closeMenu} className={`${isActive('/products') ? 'text-black' : ''}`}>PRODUCTS</Link>
+              <Link to="/franchise" onClick={closeMenu} className={`${isActive('/franchise') || isActive('/partner') ? 'text-black' : ''}`}>FRANCHISE</Link>
+              <Link to="/locations" onClick={closeMenu} className={`${isActive('/locations') ? 'text-black' : ''}`}>LOCATIONS</Link>
+
+              <Link to="/partner" onClick={closeMenu} className="pt-2">
+                <button className="bg-[#022f24] text-white px-6 py-3 rounded-full text-sm font-medium w-full shadow-sm">
+                  BECOME A FRANCHISE PARTNER
+                </button>
+              </Link>
+            </nav>
+          </div>
+        )}
+      </div>
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col items-stretch">
@@ -97,66 +104,6 @@ function Layout({ children }) {
           <a href="#" className="text-white/80 hover:text-white transition-colors text-sm">Sustainability</a>
         </div>
       </footer>
-    </div>
-  );
-}
-
-// Home Page Component
-function Home() {
-  return (
-    <div className="relative w-full h-[80vh] min-h-[600px] flex flex-col justify-center items-center text-center px-4 flex-grow">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/hero-bg.png"
-          alt="Cake Box Bakery"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
-
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-        <p className="text-white text-sm font-bold tracking-[0.2em] mb-6 uppercase">
-          Bakery &bull; Celebrations &bull; Franchise
-        </p>
-
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white font-medium mb-10 leading-tight">
-          Turn Your Passion for Baking Into a <span className="text-[#e2933f]">Profitable Business</span>
-        </h2>
-
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <Link to="/partner">
-            <button className="flex items-center justify-center gap-2 bg-[#022f24] hover:bg-[#034233] text-white px-8 py-4 rounded-full font-medium transition-colors w-full sm:w-auto">
-              BECOME A FRANCHISE PARTNER <ArrowRight size={18} />
-            </button>
-          </Link>
-          <Link to="/about">
-            <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-medium transition-colors w-full sm:w-auto mt-4 sm:mt-0">
-              EXPLORE CAKE BOX
-            </button>
-          </Link>
-        </div>
-
-        {/* Divider Line */}
-        <div className="w-full max-w-3xl h-px bg-white/30 mb-8"></div>
-
-        {/* Features Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-3xl text-white">
-          <div className="flex items-center gap-3 py-2">
-            <TrendingUp size={24} />
-            <span className="font-semibold text-sm uppercase tracking-wider">Growing Brand</span>
-          </div>
-          <div className="flex items-center gap-3 py-2">
-            <Star size={24} />
-            <span className="font-semibold text-sm uppercase tracking-wider">Premium Products</span>
-          </div>
-          <div className="flex items-center gap-3 py-2">
-            <Headset size={24} />
-            <span className="font-semibold text-sm uppercase tracking-wider">Franchise Support</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
