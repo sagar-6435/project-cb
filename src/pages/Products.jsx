@@ -46,10 +46,10 @@ const categories = [
 
 export default function Products() {
     return (
-        <div className="flex-grow bg-white pt-24">
+        <div className="flex-grow bg-white pt-6 lg:pt-24">
 
             {/* Page Heading */}
-            <div className="text-center px-4 max-w-4xl mx-auto mb-4 mt-8">
+            <div className="text-center px-4 max-w-4xl mx-auto mb-4 mt-2 lg:mt-8">
                 <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 tracking-tight">
                     Our Products
                 </h1>

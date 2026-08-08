@@ -18,7 +18,7 @@ function Layout({ children }) {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-gray-50">
+    <div className="min-h-screen flex flex-col font-sans bg-gray-50 w-full overflow-x-hidden">
       {/* Header Container */}
       <div className="sticky top-0 lg:fixed lg:top-3 lg:left-0 lg:right-0 z-50 flex justify-center lg:px-4 w-full lg:pointer-events-none">
 

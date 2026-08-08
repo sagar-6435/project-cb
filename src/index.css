@@ -4,3 +4,13 @@
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
