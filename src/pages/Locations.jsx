@@ -23,22 +23,15 @@ const locations = [
 export default function Locations() {
     return (
         <div className="flex-grow bg-white">
-            {/* Hero Section */}
-            <div className="bg-[#e4e2dd] py-24 px-8 text-center">
-                <div className="max-w-3xl mx-auto">
-                    <p className="text-[#022f24] font-semibold tracking-widest uppercase text-sm mb-4">Our Locations</p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">
-                        Find Cake Box
-                    </h1>
-                    <p className="text-lg md:text-xl text-gray-700">
-                        From local celebrations to everyday cravings, Cake Box is bringing delicious experiences closer to customers.
-                        Explore our current locations and discover a Cake Box near you.
-                    </p>
-                </div>
+            {/* Page Heading */}
+            <div className="text-center px-4 max-w-4xl mx-auto mb-4 mt-8 pt-24">
+                <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 tracking-tight">
+                    Our Locations
+                </h1>
             </div>
 
             {/* Locations List */}
-            <div className="py-24 px-8 max-w-5xl mx-auto">
+            <div className="pt-8 pb-24 px-8 max-w-5xl mx-auto">
                 <div className="flex flex-col gap-8">
                     {locations.map((loc, i) => (
                         <div key={i} className="flex flex-col md:flex-row items-center justify-between bg-gray-50 border border-gray-200 p-8 rounded-2xl hover:shadow-md transition-shadow">

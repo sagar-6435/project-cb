@@ -56,7 +56,7 @@ export default function Products() {
             </div>
 
             {/* Categories Grid */}
-            <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+            <div className="pt-8 pb-24 px-4 md:px-8 max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                     {categories.map((cat, i) => (
                         <div key={i} className="bg-gray-50 rounded-2xl p-4 md:p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 group">

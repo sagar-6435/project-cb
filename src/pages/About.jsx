@@ -4,30 +4,15 @@ import { Link } from 'react-router-dom';
 export default function About() {
     return (
         <div className="flex-grow bg-white">
-            {/* Hero Section */}
-            <div className="bg-[#e4e2dd] py-24 px-8 text-center relative overflow-hidden">
-                <div className="relative z-10 max-w-4xl mx-auto">
-                    <p className="text-[#022f24] font-semibold tracking-widest uppercase text-sm mb-4">About Cake Box</p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">
-                        More Than Just a Bakery
-                    </h1>
-                    <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10">
-                        Creating cakes, celebrations, and moments worth remembering.
-                    </p>
-                    <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10">
-                        Cake Box is a bakery brand built around one simple idea — every celebration deserves something special.
-                        From beautifully crafted cakes to delicious treats, we bring together taste, creativity, and the joy of celebration.
-                    </p>
-                    <Link to="/products">
-                        <button className="bg-[#022f24] hover:bg-[#034233] text-white px-8 py-4 rounded-full font-medium transition-colors">
-                            Explore Our Products
-                        </button>
-                    </Link>
-                </div>
+            {/* Page Heading */}
+            <div className="text-center px-4 max-w-4xl mx-auto mb-4 mt-8 pt-24">
+                <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 tracking-tight">
+                    About Us
+                </h1>
             </div>
 
             {/* Our Story */}
-            <div className="py-24 px-8 max-w-5xl mx-auto text-center">
+            <div className="pt-8 pb-24 px-8 max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Story</h2>
                 <p className="text-[#e2933f] font-semibold uppercase tracking-widest text-sm mb-12">Where Every Celebration Begins</p>
 
